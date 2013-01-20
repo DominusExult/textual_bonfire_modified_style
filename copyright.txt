@@ -1,1 +1,6 @@
 Copyright © 2010, 2011, 2012 Josh Goebel
+
+Also Simplified Light Modifications:
+Modification of the stock Simplified Light theme for [Textual](http://textualapp.com). Adds emoji support and collapses topics to only the first line - hover to show the full topic. [BSD licensed.](http://en.wikipedia.org/wiki/BSD_licenses#3-clause_license_.28.22New_BSD_License.22_or_.22Modified_BSD_License.22.29)
+
+Copyright © 2013 Dominik Reichardt

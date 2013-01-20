@@ -1,11 +1,14 @@
 # Bonfire Modified DARK
 
-Bonfire is a nice and light theme for Textual based around the same asthetics as
-37signals' popular [Campfire](http://campfirenow.com) chat web service.  Dark sides
-can be turned on and off with `Darken main window colors` check box in preferences.
-I just happen to like them dark, so that's what I used for the sample snap.
+Bonfire Modified DARK is a heavy modification of Josh Goebel's [Bonfire theme](https://github.com/yyyc514/textual_bonfire_style) for Textual 
+(in turn based around the same asthetics as 37signals' popular [Campfire](http://campfirenow.com) 
+chat web service).
 
-![What it looks like (NOT YET)](https://raw.github.com/yyyc514/textual_bonfire_style/master/bonfire_snap.png)
+It also borrows the emoji/emoticon support and collapsing topics (hover over tosee full topic) off [Simplified Light Modifications](https://github.com/hbang/Simplified-Light-Modifications).
+The emoticons *only* show with new messages, old messages are not parsed for this.
+
+Also, please excuse obvious plunders. I have no real idea about java script 
+![What it looks like](https://raw.github.com/DominusExult/textual_bonfire_modified_style/master/bonfire_mod_snap.png)
 
 ## Textual 2.1.1
 
@@ -18,6 +21,3 @@ changes][theme_engine].
     git clone git://github.com/DominusExult/textual_bonfire_modified_style.git
 
 Now go choose your new theme inside Textual.
-
-
-Go choose your new theme inside Textual.
