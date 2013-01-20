@@ -1,0 +1,2 @@
+* Make sure the history indicator works properly
+* Make sure we honor the scrollback limits
