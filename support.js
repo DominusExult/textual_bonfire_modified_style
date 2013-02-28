@@ -16,12 +16,13 @@
     };
 
     Renderer.prototype.draw = function() {
-      var lines,
+      var lines, raw_lines,
         _this = this;
       this.drawing = true;
       this.decay || (this.decay = 25);
-      lines = this.table.find(".line.raw");
-      lines.each(function(i, o) {
+      lines = this.table.find(".line");
+	  raw_lines = this.table.find(".line.raw");
+	  raw_lines.each(function(i, o) {
         var num;
         num = o.id.replace("line", "");
         num = parseInt(num);
@@ -99,18 +100,30 @@
 	      if (this.last_time) {
 	        diff = (ts - this.last_time) / 1000 / 60;
 	      }
-	      if (diff >= 5) {
+	      if (diff < 7 && opts.before.attr("type") !== "privmsg") {
+	        this.no_time += 1;
+	        return;
+	      }
+	      if (diff >= 5 || (diff < 0.1 && this.no_time > 10 && s !== this.last_time_string)) {
 	        //row = $("<div class='line time'><div class='blank'></div><div class='msg'>" + s + "</div></div>");
 	        Bonfire.last_nick = null;
 	        //row.insertBefore(opts.before);
-	        return this.last_time = ts;
+	        this.last_time = ts;
+	        this.last_time_string = s;
+	        return this.no_time = 0;
+	      } else {
+	        return this.no_time += 1;
 	      }
 	    };
+
+	Renderer.prototype.line = function(num) {
+	  return this.table.find("#line" + num);
+	};
 
     Renderer.prototype.message = function(lineNumber) {
       var nick, row, sender, time,
         _this = this;
-      row = this.table.find("#line" + lineNumber);
+      row = this.line(lineNumber);
       if (!row[0]) {
         console.warn("missing " + lineNumber + ", retrying");
         setTimeout(function() {
@@ -118,10 +131,10 @@
         }, 50);
         return;
       }
-      time = row.find("span.time");
-      this.time(time.html(), {
-        before: row
-      });
+      //time = row.find("span.time");
+      //this.time(time.html(), {
+     //   before: row
+     // });
       //time.remove();
       row.removeClass("raw");
       sender = row.find("span.sender");

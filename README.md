@@ -4,7 +4,7 @@ Bonfire Modified DARK is a heavy modification of Josh Goebel's [Bonfire theme](h
 (in turn based around the same asthetics as 37signals' popular [Campfire](http://campfirenow.com) 
 chat web service).
 
-It also borrows the emoji/emoticon support and collapsing topics (hover over tosee full topic) off [Simplified Light Modifications](https://github.com/hbang/Simplified-Light-Modifications).
+It also borrows the emoji/emoticon support and collapsing topics (hover over tosee full topic) of [Simplified Light Modifications](https://github.com/hbang/Simplified-Light-Modifications).
 The emoticons *only* show with new messages, old messages are not parsed for this.
 
 Also, please excuse obvious plunders. I have no real idea about java script 
