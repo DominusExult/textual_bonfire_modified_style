@@ -79,7 +79,7 @@ a:hover {
   font-weight:bold;
   text-align:center;
   z-index: 400;
-  opacity: 0.95;
+  opacity: 0;
   font-size: 12px;
   position: fixed;
   padding: 2px 0.5em 3px;
@@ -88,8 +88,6 @@ a:hover {
   text-shadow: 1px 1px rgba(83, 86, 94, 0.7);
   background: -webkit-linear-gradient(top, #A2B0D0 0%, #7385AD 100%);
   -webkit-transition: opacity 0.8s linear;
-  overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
   -webkit-box-shadow: 0 1px 5px #777;
 }
@@ -104,8 +102,7 @@ a:hover {
 
 
 #topic_bar:hover {
-	overflow: visible;
-	white-space: normal;
+	opacity: 0.95;
   
 }
 
@@ -436,17 +433,19 @@ body .inline_nickname[colornumber='30'] {
 
 /* icing */
 
-.chatlog .line[type='notice'] .nick .sender { color:#333 !important }
-.chatlog .line[type='notice'] .msg { color:#963; 
-/*  background: #FDEAC0;*/
-  color:#222;
-  }
-.chatlog .line[type='ctcp'] div
-{
-	font-size:6px;
-	/*background:#C7EDA5;*/
-}
-  
+.chatlog .line[type='notice'] div,
+.chatlog .line[type='ctcp'] div,
+.chatlog .line[type='wallops'] div
+ { 
+	/*color:#333 !important*/
+	font-size: 9px;
+	color: #f00;
+  	z-index: 191;
+	background: #400;
+ 	padding: 2px 5px 2px 5px;
+	border-top: 1px solid #811;
+	border-bottom: 1px solid #811;
+}  
   
 .chatlog .line[type='debug'] .msg { 
 	color:#999; 
@@ -468,8 +467,6 @@ body .inline_nickname[colornumber='30'] {
 	opacity: 1;
 	margin-left: 15em !important; 
 	margin-right: 30em;
-	/*background:#d9e7fb;*/
-	/*border-bottom:1px solid #C8D9F2;*/
 }
 
 
