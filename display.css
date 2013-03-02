@@ -113,6 +113,12 @@ a:hover {
   
 }
 
+/* message playback */
+.historic 
+{
+    opacity: 0.6;
+}
+
 /* Images */
 
 body a img {
