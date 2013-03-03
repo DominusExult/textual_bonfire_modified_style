@@ -116,13 +116,11 @@ function replaceEmoji(lineNumber) {
 			"*_*": "😍"
 		},
 		line = document.querySelector("#line" + lineNumber + " .message");
-		app.logToConsole("emojis?");
 
 	if (line) {
 		for (var i in emoji) {
 			while (line.innerHTML.indexOf(i) != -1) {
 				line.innerHTML = line.innerHTML.replace(i, emoji[i]);
-				app.logToConsole("emojis?2");
 			}
 		}
 
