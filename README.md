@@ -12,8 +12,8 @@ Also, please excuse obvious plunders. I have no real idea about java script
 
 ## Textual 2.1.1
 
-This only supports Textual 2.1.1 and newer because of the recent [theme engine
-changes][theme_engine]. 
+This only supports Textual 2.1.1 and newer because of the 2.1x theme engine
+changes. 
 ### Installation
 
     cd ~/Library/Containers/com.codeux.textual/Data/Library/
