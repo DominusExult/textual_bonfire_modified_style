@@ -36,23 +36,23 @@ Textual.newMessagePostedToView=function(lineNumber)
 	if (!Bonfire.started)
 		return;
 	
-  Bonfire.render.message(lineNumber);
+  Bonfire.render.message(lineNumber,0);
   return;
 	}
 
 // replace Textual mark with our own
 Textual.historyIndicatorAddedToView = function() {}
 
-Textual.viewFinishedLoading = function() 
+Textual.viewFinishedLoading = function()
 { 
   console.log("viewFinishedLoading");
-  Bonfire.init(); 
+  Bonfire.init();
 }
   
-Textual.viewFinishedReload = function() 
+Textual.viewFinishedReload = function()
 { 
   console.log("viewFinishedReload");
-  Bonfire.init(); 
+  Bonfire.init();
 }
 
 function replaceEmoji(lineNumber) {

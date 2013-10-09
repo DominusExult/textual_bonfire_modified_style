@@ -316,6 +316,8 @@ body .inline_nickname[colornumber='30'] {
 	color: #08465f;
 }
 
+/*body .inline_nickname[colornumber] { color:inherit !important; }*/ 
+
 
 /* mIRC Color Codes */
 

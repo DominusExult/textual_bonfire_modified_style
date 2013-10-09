@@ -1,16 +1,17 @@
-<div type="{{lineType}}" 
-	highlight="{{highlightAttributeRepresentation}}" 
-	class="line raw {{lineClassAttributeRepresentation}}" 
+<div type="{{lineType}}"
+	highlight="{{highlightAttributeRepresentation}}"
+	class="line raw {{lineClassAttributeRepresentation}}"
 	nicktype="{{nicknameType}}"
-	id="line{{lineNumber}}">
+	id="line{{lineNumber}}"
+	time="{{lineRenderTime}}">
 
 	<div class="nick">
   	<span class="sender"
-  		ondblclick="Textual.nicknameDoubleClicked()" 
-  		oncontextmenu="Textual.openStandardNicknameContextualMenu()" 
-  		type="{{nicknameType}}" 
-  		nick="{{nickname}}" 
-  		{{#nicknameColorHashingEnabled}} 
+  		ondblclick="Textual.nicknameDoubleClicked()"
+  		oncontextmenu="Textual.openStandardNicknameContextualMenu()"
+  		type="{{nicknameType}}"
+  		nick="{{nickname}}"
+  		{{#nicknameColorHashingEnabled}}
   			colornumber="{{nicknameColorNumber}}"
   		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</span>
 	</div>
