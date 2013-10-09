@@ -23,11 +23,20 @@ body {
 /* tables, yeah */
 
 div#body_home { 
-	display:table; 
+	/*display:table;*/
 	table-layout:fixed;
 	border-collapse:separate;
 	border-spacing:0px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	left:0; 
 }
+
+body[type="channel"] div#body_home {
+	max-height: 96.5%;
+}
+
 div.line { display:table-row; }
 div#mark { display:table-row; }
 div.line .nick { display:table-cell; }
