@@ -28,17 +28,17 @@ var Bonfire={
 Textual.newMessagePostedToView=function(lineNumber)
 {
   // FinishedLoding or FinishedReload event should spooling us up, patience
-if (!replaceEmoji(lineNumber)) {
-	setTimeout(function() {
+	if (!replaceEmoji(lineNumber)) {
+		setTimeout(function() {
 		replaceEmoji(lineNumber);
-	}, 500);
-}
+		}, 500);
+	}
 	if (!Bonfire.started)
 		return;
 	
   Bonfire.render.message(lineNumber);
   return;
-}
+	}
 
 // replace Textual mark with our own
 Textual.historyIndicatorAddedToView = function() {}
