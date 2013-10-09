@@ -1,15 +1,224 @@
 // no longer generated
 (function() {
+	
+	var Bonfire, Hello, Renderer;
 
-  this.Renderer = (function() {
+	  Textual.viewFinishedLoading = function() {
+	    return Bonfire.boot();
+	  };
+
+	  Textual.viewFinishedReload = function() {
+	    return Bonfire.boot();
+	  };
+
+	  Textual.handleEvent = function(event) {
+	    return Bonfire.handleEvent(event);
+	  };
+
+	  Textual.newMessagePostedToView = function(lineNumber) {
+	  	if (!replaceEmoji(lineNumber)) {
+	  		setTimeout(function() {
+	  		replaceEmoji(lineNumber);
+	  		}, 500);
+	  	}
+	    return Bonfire.message(lineNumber);
+	  };
+	  
+	  replaceEmoji = function(lineNumber) {
+	  	var emoji = {
+	  			":)": "😊",
+	  			":-)": "😊",
+	  			"(:": "😊",
+	  			":D": "😃",
+	  			";D": "😄",
+	  			";)": "😉",
+	  			";-)": "😉",
+	  			";P": "😜",
+	  			";-P": "😜",
+	  			":P": "😝",
+	  			":-P": "😝",
+	  			"o_o": "😳",
+	  			"O_O": "😳",
+	  			"o_O": "😳",
+	  			"0_o": "😳",
+	  			"o_0": "😳",
+	  			"0_0": "😳",
+	  			"O_o": "😳",
+	  			":@": "😡",
+	  			">.<": "😣",
+	  			">_<": "😫",
+	  			":(": "😞",
+	  			":-(": "😞",
+	  			"n_n": "😄",
+	  			"u_u": "😔",
+	  			"^_^": "😄",
+	  			"^.^": "😊",
+	  			"x.x": "😵",
+	  			"x.X": "😵",
+	  			"X.x": "😵",
+	  			"X.X": "😵",
+	  			"x_x": "😲",
+	  			"x_X": "😲",
+	  			"X_x": "😲",
+	  			"X_X": "😲",
+	  			"D:": "😧",
+	  			":s": "😖",
+	  			":S": "😖",
+	  			"DD:": "😫",
+	  			"._.'": "😰",
+	  			"._.": "😞",
+	  			";_;": "😢",
+	  			";__;": "😢",
+	  			"D;": "😰",
+	  			"^_^'": "😅",
+	  			"^.^": "😅",
+	  			"T_T": "😭",
+	  			"T.T": "😭",
+	  			":|": "😐",
+	  			":o": "😯",
+	  			":O": "😱",
+	  			":0": "😱",
+	  			"-_-": "😑",
+	  			":*": "😚",
+	  			":**": "😘",
+	  			":***": "😘",
+	  			"*_*": "😍"
+	  		},
+	  		line = document.querySelector("#line" + lineNumber + " .message");
+
+	  	if (line) {
+	  		for (var i in emoji) {
+	  			while (line.innerHTML.indexOf(i) != -1) {
+	  				line.innerHTML = line.innerHTML.replace(i, emoji[i]);
+	  			}
+	  		}
+
+	  		return true;
+	  	}
+
+	  	return false;
+	  }
+
+	  Bonfire = {
+	    boot: function() {
+	      return Bonfire.booting || (Bonfire.booting = setTimeout(function() {
+	        return Bonfire.renderer = new Renderer($("#body_home"));
+	      }, 25));
+	    },
+	    message: function(lineNumber) {
+	      if (Bonfire.renderer) {
+	        return Bonfire.renderer.message(lineNumber, 0);
+	      }
+	    },
+	    handleEvent: function(event) {
+	      console.log("event: " + event);
+	      if (Bonfire.renderer.hello[event]) {
+	        return Bonfire.renderer.hello[event]();
+	      }
+	    }
+	  };
+
+	  Hello = (function() {
+	    function Hello(table) {
+	      this.table = table;
+	      this.div = $("#hello");
+	      this.summary = $("#status"); 
+	      this.hidden = false;
+		  this.table.hide(); 
+	      this.render();
+	    }
+
+	    Hello.prototype.render = function() {
+	      var channel;
+	      channel = $("html").attr("channelname");
+	      if (channel) {
+	        this.text("You have not joined this channel yet.");
+	      }
+	      if (!app.serverIsConnected) {
+	        return;
+	      }
+	      this.summary.hide(); 
+	      if (!app.serverIsConnected()) {
+	       this.text("You have not yet connected to the server.");
+	       return this.status("Not connected to server.");
+	      } else if (channel && !app.channelIsJoined()) {
+			  return this.status("Not joined to channel."); 
+	      } else if (app.channelIsJoined()) {
+	        return this.text("No chatter on this channel yet.");
+	      }
+	    };
+
+	    Hello.prototype.status = function(x) {
+	     if (this.hidden) {
+	        this.summary.show();
+	      }
+	      return this.summary.find("p").html(x);
+	    };
+
+	    Hello.prototype.show = function() {
+	      this.hidden = false;
+	      this.div.show();
+	      return $("#topic_bar").hide();
+	    };
+
+	    Hello.prototype.text = function(x) {
+	      return this.div.find("p").html(x);
+	    };
+
+	    Hello.prototype.hide = function() {
+	      if (this.hidden) {
+	        return;
+	      }
+	      if (this.table.find(".line").length === 0) {
+	        return;
+	      }
+	      this.table.show();
+	      this.hidden = true;
+	      this.div.hide();
+	      $("#topic_bar").show();
+		  return this.render();
+	    };
+
+	    Hello.prototype.rerender = function() {
+			var _this = this;
+			return setTimeout((function() {
+			return _this.render();
+			}), 25);
+	    };
+
+	    Hello.prototype.serverDisconnected = function() {
+	      return this.rerender();
+	    };
+
+	    Hello.prototype.serverConnected = function() {
+	      return this.rerender();
+	    };
+
+	    Hello.prototype.channelJoined = function() {
+	      return this.rerender();
+	    };
+
+	    Hello.prototype.channelParted = function() {
+	      return this.rerender();
+	    };
+
+	    return Hello;
+
+	  })();
+
+
+  Renderer = (function() {
 
     function Renderer(table) {
       this.table = table;
+	  this.hello = new Hello(this.table);
       this.draw();
       this.same_nick = 0;
+	  this.no_time = 0;
     }
 
     Renderer.prototype.draw_done = function(final) {
+      this.hello.hide();
       Textual.scrollToBottomOfView();
       this.cap_link_width();
       return this.setup_cap_links();
@@ -121,6 +330,25 @@
 	  return this.table.find("#line" + num);
 	};
 
+    Renderer.prototype.fix_realy_long_words = function(row) {
+      var long, msg, word, words, _i, _len;
+      msg = row.find("span.message");
+      words = row.text().split(" ");
+      long = false;
+      for (_i = 0, _len = words.length; _i < _len; _i++) {
+        word = words[_i];
+        if (word.length > 100) {
+          long = true;
+          break;
+        }
+      }
+      if (long) {
+        return msg.css({
+          "word-break": "break-all"
+        });
+      }
+    }; 
+
     Renderer.prototype.message = function(lineNumber, repeat) {
       var nick, row, sender, time,
         _this = this;
@@ -141,6 +369,7 @@
      //   before: row
      // });
       //time.remove();
+	  this.fix_realy_long_words(row); 
       row.removeClass("raw");
       sender = row.find("span.sender");
       nick = sender.attr("nick");

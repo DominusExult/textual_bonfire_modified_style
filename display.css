@@ -40,6 +40,8 @@ div.line .msg { display:table-cell; }
 .msg p span.message
 {
   word-wrap:break-word;
+  word-break: break-all;
+  word-break: normal;
 }
 
 /* Remember Line */
@@ -417,6 +419,11 @@ body .inline_nickname[colornumber='30'] {
 	text-overflow: ellipsis;
 }
 
+.chatlog div.msg a.hasinlineimage
+{
+  display:block;
+}
+
 .chatlog .line[type=privmsg][highlight=true] .nick,
 .chatlog .line[type=action][highlight=true] .nick 
 {
@@ -555,3 +562,69 @@ body .inline_nickname[colornumber='30'] {
 	border-right:0px;
 	
 }*/
+
+/* status */
+
+#status
+{
+  background:rgba(0,0,0,0.75);
+  width:50%;
+  position:fixed;
+  top:45%;
+  left:25%;
+  font-family:'Helvetica Neue';
+  padding:20px;
+  border-radius:5px;
+}
+#status p
+{
+  font-weight:300;
+  font-size:2em;
+  text-align:center;
+  color:white;
+}
+
+/* blankslate */
+
+#hello
+{
+  /*background:url(Data/Resources/linen.png);*/
+  display:table;
+  margin:auto;
+  height:100%;
+  width:100%;
+  font-family:'Helvetica Neue';
+}
+
+#hello div
+{
+  height:100px;
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+}
+
+
+#hello .channel
+{
+  border-radius:5px;
+  padding:5px 10px;
+  background:rgba(255,255,255,0.2);
+  color:#333;
+  font-size:2em;
+/* box-shadow:0px 0px 5px #666;*/
+}
+
+#topic_bar { display:none; }
+
+#hello p
+{
+/* background:rgba(255,255,255,0.5);*/
+  text-shadow:1px 1px 0px #666;
+  margin-top:0.5em;
+  font-size:2em;
+  color:#777;
+  color:#eee;;
+  font-weight:300;
+/* box-shadow:0px 1px 10px #666;*/
+}
