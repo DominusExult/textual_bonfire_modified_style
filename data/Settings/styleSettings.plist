@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Template Engine Version</key>
+	<integer>2</integer>
 	<key>Nickname Format</key>
 	<string></string>
 	<key>Timestamp Format</key>
@@ -9,9 +11,9 @@
 	<key>Override Channel Font</key>
 	<dict>
 		<key>Font Name</key>
-		<string></string>
+		<string>AnonymousPro</string>
 		<key>Font Size</key>
-		<integer>0</integer>
+		<integer>14</integer>
 	</dict>
 	<key>Indentation Offset</key>
 	<integer>6</integer>
