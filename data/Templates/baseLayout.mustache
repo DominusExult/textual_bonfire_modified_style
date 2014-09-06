@@ -4,6 +4,8 @@
 			channelname="{{channelName}}" 
 		{{/isChannelView}}
 		
+		systemversion="{{operatingSystemVersion}}"
+		
 		dir="{{textDirectionToken}}">
 		
 	<head>
@@ -12,6 +14,8 @@
 		<link rel="stylesheet" type="text/css" href="{{activeStyleAbsolutePath}}/display.css?u={{cacheToken}}">
 		
 		<script src="{{applicationResourcePath}}/JavaScript/API/core.js" type="text/javascript"></script>
+		<script src="{{applicationResourcePath}}/JavaScript/API/corePrivate.js" type="text/javascript"></script>
+		<script src="{{applicationResourcePath}}/JavaScript/API/liveresize.js" type="text/javascript"></script>
 		<script src="{{activeStyleAbsolutePath}}/zepto8.tiny.js" type="text/javascript"></script>
 		<script src="{{activeStyleAbsolutePath}}/support.js?u={{cacheToken}}" type="text/javascript"></script>
 		
@@ -46,7 +50,7 @@
 			remain the same as the ID value of these elements are used internally by Textual. -->
 			
       <div id="loading_screen">View is Loading…</div>
-			<div id="body_home" class="chatlog"><!-- Filled at runtime. --></div>
+			
 			<div id="hello">
 				<div>
 					<span class="channel">{{channelName}}
@@ -67,9 +71,14 @@
 			</div>
 
 			{{#isChannelView}}
-			<div id="topic_bar">
+			<div id="body_container">
+				{{#isChannelView}}
+				<div id="topic_bar" ondblclick="Textual.topicDoubleClicked()">
 				 {{{formattedTopicValue}}}
+				</div>
+				{{/isChannelView}}
 			 </div>
 			{{/isChannelView}}
+			<div id="body_home" class="chatlog"><!-- Filled at runtime. --></div>
 	</body>
 </html>

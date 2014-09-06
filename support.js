@@ -153,7 +153,9 @@
 
     Renderer.prototype.draw_done = function(final) {
       this.hello.hide();
-      Textual.scrollToBottomOfView();
+  	  setTimeout(function() {
+  		Textual.scrollToBottomOfView()
+  	  }, 500);
       this.cap_link_width();
       return this.setup_cap_links();
     };
