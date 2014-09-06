@@ -5,35 +5,39 @@
 	id="line{{lineNumber}}"
 	time="{{lineRenderTime}}">
 
-	<div class="nick">
-  	<span class="sender"
+	<div class="nick"
+		data-nick="{{nickname}}"
+		onmouseover="BonfireHelpers.highlight_nick('{{nickname}}')"
+		onmouseout="BonfireHelpers.unhighlight_nick('{{nickname}}')">
+	<span class="sender"
   		ondblclick="Textual.nicknameDoubleClicked()"
   		oncontextmenu="Textual.openStandardNicknameContextualMenu()"
   		type="{{nicknameType}}"
   		nick="{{nickname}}"
+		nickname="{{nickname}}"
   		{{#nicknameColorHashingEnabled}}
   			colornumber="{{nicknameColorNumber}}"
   		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</span>
 	</div>
-		<div class="msg">
-{{#isRemoteMessage}}
-	<p>
-{{/isRemoteMessage}}
+	<div class="msg">
+		{{#isRemoteMessage}}
+			<p>
+		{{/isRemoteMessage}}
 
-{{^isRemoteMessage}}
-	<p type="{{nicknameType}}">
-{{/isRemoteMessage}}
+		{{^isRemoteMessage}}
+			<p type="{{nicknameType}}">
+		{{/isRemoteMessage}}
 
 		<span class="time">{{formattedTimestamp}} </span>
 		<span class="message">
-					{{{formattedMessage}}}
-					
-					{{#inlineMediaAvailable}}
-						{{#inlineMediaArray}}
-							<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}');" class="hasinlineimage"><img id="inlineImage-{{anchorInlineImageUniqueID}}" src="{{{imageURL}}}" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
-						{{/inlineMediaArray}}
-					{{/inlineMediaAvailable}}
+			{{{formattedMessage}}}
+
+			{{#inlineMediaAvailable}}
+			{{#inlineMediaArray}}
+				<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}');" class="hasinlineimage"><img id="inlineImage-{{anchorInlineImageUniqueID}}" src="{{{imageURL}}}" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+			{{/inlineMediaArray}}
+			{{/inlineMediaAvailable}}
 		</span>
-	</p>
+				</p>
 	</div>
 </div>
