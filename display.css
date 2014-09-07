@@ -684,3 +684,14 @@ html[systemversion^="10.9"] .inlineImageCell .closeButton,
 html[systemversion^="10.8"] .inlineImageCell .closeButton {
 	line-height: 13px;
 }
+
+/* Encryption Lock */
+
+.encryptionLock img {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+	margin-top: 2px;
+	padding-left: 10px;
+}
