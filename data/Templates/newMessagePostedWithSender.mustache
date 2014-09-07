@@ -3,6 +3,9 @@
 	class="line raw {{lineClassAttributeRepresentation}}"
 	nicktype="{{nicknameType}}"
 	id="line{{lineNumber}}"
+	{{#isEncrypted}}
+			encrypted="true"
+	{{/isEncrypted}}
 	time="{{lineRenderTime}}">
 
 	<div class="nick"
@@ -20,15 +23,17 @@
   		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</span>
 	</div>
 	<div class="msg">
+		{{#isEncrypted}}
+		{{{encryptedMessageLockTemplate}}}
+		{{/isEncrypted}}
 		{{#isRemoteMessage}}
 			<p>
 		{{/isRemoteMessage}}
-
+			
 		{{^isRemoteMessage}}
 			<p type="{{nicknameType}}">
 		{{/isRemoteMessage}}
-
-		<span class="time">{{formattedTimestamp}} </span>
+		<span class="time">{{formattedTimestamp}}</span>
 		<span class="message">
 			{{{formattedMessage}}}
 

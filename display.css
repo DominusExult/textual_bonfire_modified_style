@@ -688,10 +688,11 @@ html[systemversion^="10.8"] .inlineImageCell .closeButton {
 /* Encryption Lock */
 
 .encryptionLock img {
-	float: right;
+	float: left;
+	color: #666;
 	margin: 0;
 	padding: 0;
 	height: 11px;
 	margin-top: 2px;
-	padding-left: 10px;
+	padding-right: 10px;
 }
