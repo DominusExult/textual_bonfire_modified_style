@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Template Engine Version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>Nickname Format</key>
 	<string></string>
 	<key>Timestamp Format</key>
