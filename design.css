@@ -190,7 +190,8 @@ body img {
 {
 	color:#fff;
 	background:#823f47;
- /*I would like to do this instead of te above but it doesn't span over all the tables but repeats each line
+ /*I would like to do this instead of the above but it doesn't span over all the tables but repeats each line
+ (.chatlog .line[mtype=myself] div would use both .nick and .msg)
 	background: -webkit-gradient(linear, left top, left bottom, from(#823f47), color-stop(0.8, #4c252a));
 	-webkit-border-top-left-radius:8px 12px;
 	-webkit-border-bottom-left-radius:8px 12px;
@@ -416,7 +417,14 @@ body img {
   margin:auto;
   height:100%;
   width:100%;
-  font-family:'Helvetica Neue';
+  font-family:'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#hello img#appicon
+{
+  text-align:center;
+  margin:0 auto;
+  margin-bottom:15px;
 }
 
 #hello div
@@ -426,7 +434,6 @@ body img {
   text-align:center;
   vertical-align:middle;
 }
-
 
 #hello .channel
 {
@@ -447,7 +454,6 @@ body img {
   margin-top:0.5em;
   font-size:2em;
   color:#777;
-  color:#eee;;
   font-weight:300;
 /* box-shadow:0px 1px 10px #666;*/
 }
