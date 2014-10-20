@@ -113,11 +113,10 @@
 	    };
 
 	    Hello.prototype.rerender = function() {
-			return setTimeout(((function(_this) {
-				return function() {
-					return _this.render();
-				};
-			})(this)), 25);
+			var _this = this;
+			return setTimeout((function() {
+			return _this.render();
+			}), 25);
 	    };
 
 	    Hello.prototype.serverDisconnected = function() {
@@ -161,28 +160,25 @@
     };
 
     Renderer.prototype.draw = function() {
-      var lines, raw_lines;
+        var lines, raw_lines,
+          _this = this;
       this.drawing = true;
       this.decay || (this.decay = 25);
       lines = this.table.find(".line");
 	  raw_lines = this.table.find(".line.raw");
-	  raw_lines.each((function(_this) {
-        return function(i, o) {
-			var num;
-        	num = o.id.replace("line", "");
-        	return _this.message(num, 0);
-     	};
-	  })(this));
+	  raw_lines.each(function(i, o) {
+        var num;
+        num = o.id.replace("line", "");
+        return _this.message(num, 0);
+      });
       if (lines.length > 0) {
         this.draw_done();
       }
       this.decay *= 2;
       if (!(this.decay > 15000)) {
-        return setTimeout((function(_this) {
-          return function() {
-        	  return _this.draw();
-		   };
-		})(this), this.decay);
+          return setTimeout(function() {
+            return _this.draw();
+          }, this.decay);
       } else {
         this.drawing = false;
         return this.draw_done(true);
@@ -190,25 +186,22 @@
     };
 
     Renderer.prototype.setup_cap_links = function() {
+      var _this = this;
       if (this.cap_links_setup) {
         return;
       }
       this.cap_links_setup = true;
-      setTimeout(((function(_this) {
-        return function() {
-          return _this.cap_link_width;
-        };
-      })(this)), 30000);
-      return window.addEventListener("resize", (function(_this) {
-        return function() {
-          if (_this.resize) {
-            clearTimeout(_this.resize.timeoutID);
-          }
-          return _this.resize = setTimeout(function() {
-            return _this.cap_link_width();
-          }, 250);
-        };
-      })(this));
+      setTimeout((function() {
+        return _this.cap_link_width;
+      }), 30000);
+      return window.addEventListener("resize", function() {
+        if (_this.resize) {
+          clearTimeout(_this.resize.timeoutID);
+        }
+        return _this.resize = setTimeout(function() {
+          return _this.cap_link_width();
+        }, 250);
+      });
     };
 
     Renderer.prototype.cap_link_width = function() {
@@ -292,7 +285,8 @@
     }; 
 
     Renderer.prototype.message = function(lineNumber, repeat) {
-      var nick, row, sender, time;
+        var nick, row, sender, time,
+          _this = this;
       row = this.line(lineNumber);
 	  this.hello.hide();
       if (!row[0]) {
@@ -301,11 +295,9 @@
 			console.warn("bailing, too many tries for " + lineNumber);
 			return;
 		} 
-		setTimeout((function(_this) {
-		          return function() {
-		            return _this.message(lineNumber, repeat + 1);
-		          };
-		        })(this), 50);
+        setTimeout(function() {
+          return _this.message(lineNumber, repeat + 1);
+        }, 50);
         return;
       }
       //time = row.find("span.time");
@@ -330,35 +322,14 @@
         }
       } else {
         this.same_nick += 1;
-		return sender.hide();
+		return sender.remove();
       }
     };
 
     return Renderer;
 
   })();
-  
-  window.BonfireHelpers = {
-    highlight_nick: function(nick) {
-      var user_msgs;
-      user_msgs = $(".nick[data-nick=\"" + nick + "\"]");
-      return user_msgs.each((function(_this) {
-        return function(idx, msg) {
-          return $(msg).addClass("nick-highlighted");
-        };
-      })(this));
-    },
-    unhighlight_nick: function(nick) {
-      var user_msgs;
-      user_msgs = $(".nick[data-nick=\"" + nick + "\"]");
-      return user_msgs.each((function(_this) {
-        return function(idx, msg) {
-          return $(msg).removeClass("nick-highlighted");
-        };
-      })(this));
-    }
-  };
-  
+
   replaceEmoji = function(lineNumber) {
   	var emoji = {
   			":)": "😊",
