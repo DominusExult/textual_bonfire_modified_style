@@ -68,7 +68,7 @@ div#mark {
   -webkit-transition: 0.2s linear;
 }
 
-div#mark div { border-bottom: 2px dashed #c33; }
+div#mark div { border-bottom: 2px dotted #c33; }
 
 /* Links */
 
@@ -378,7 +378,7 @@ body .inline_nickname[colornumber='30'] {
 	padding:5px 6px;
 }
 
-.chatlog .line[nicktype=myself] .nick
+.chatlog .line[mtype=myself] .nick
 {
 	color:#fff;
 	background:#823f47;
@@ -392,7 +392,7 @@ body .inline_nickname[colornumber='30'] {
 }
 
 /* I would like to do this instead of te above but it doesn't span over all the tables but repeats each line
-.chatlog .line[nicktype=myself] .msg
+.chatlog .line[mtype=myself] .msg
 {
 	background: -webkit-gradient(linear, left top, left bottom, from(#823f47), color-stop(0.8, #4c252a));
 	-webkit-border-top-left-radius:0;
