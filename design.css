@@ -169,7 +169,9 @@ body img {
 
 /* Nickname Colors */
 
-body p[type=myself] .message {
+/*body p[type=myself] .message {*/
+.line[mtype=myself] .message {
+	
 	/*color: #823f47;*/
 	color: #ddd;
 	font-weight:bold;

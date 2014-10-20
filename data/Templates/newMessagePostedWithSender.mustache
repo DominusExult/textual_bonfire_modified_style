@@ -1,38 +1,35 @@
-<div type="{{lineType}}"
+{{! The 'line types' folder needs to be copied to a custom style to modify this file. }}
+
+<div type="{{lineType}}" ltype="{{lineType}}"
+
+	{{^isRemoteMessage}}
+		mtype="{{nicknameType}}"
+	{{/isRemoteMessage}}
+
+	{{#isEncrypted}}
+		encrypted="true"
+	{{/isEncrypted}}
+
 	highlight="{{highlightAttributeRepresentation}}"
 	class="line raw {{lineClassAttributeRepresentation}}"
-	nicktype="{{nicknameType}}"
 	id="line{{lineNumber}}"
-	{{#isEncrypted}}
-			encrypted="true"
-	{{/isEncrypted}}
 	time="{{lineRenderTime}}">
 
 	<div class="nick"
-		data-nick="{{nickname}}"
-		onmouseover="BonfireHelpers.highlight_nick('{{nickname}}')"
-		onmouseout="BonfireHelpers.unhighlight_nick('{{nickname}}')">
-	<span class="sender"
-  		ondblclick="Textual.nicknameDoubleClicked()"
-  		oncontextmenu="Textual.openStandardNicknameContextualMenu()"
-  		type="{{nicknameType}}"
-  		nick="{{nickname}}"
-		nickname="{{nickname}}"
-  		{{#nicknameColorHashingEnabled}}
-  			colornumber="{{nicknameColorNumber}}"
-  		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</span>
+		<span class="sender"
+			onclick="Textual.nicknameMaybeWasDoubleClicked(this)"
+			oncontextmenu="Textual.openStandardNicknameContextualMenu()"
+			mtype="{{nicknameType}}"
+			nickname="{{nickname}}"
+			{{#nicknameColorHashingEnabled}}
+				colornumber="{{nicknameColorNumber}}"
+			{{/nicknameColorHashingEnabled}}>{{formattedNickname}}
+		</span>
 	</div>
 	<div class="msg">
 		{{#isEncrypted}}
-		{{{encryptedMessageLockTemplate}}}
+			{{{encryptedMessageLockTemplate}}}
 		{{/isEncrypted}}
-		{{#isRemoteMessage}}
-			<p>
-		{{/isRemoteMessage}}
-			
-		{{^isRemoteMessage}}
-			<p type="{{nicknameType}}">
-		{{/isRemoteMessage}}
 		<span class="time">{{formattedTimestamp}}</span>
 		<span class="message">
 			{{{formattedMessage}}}
