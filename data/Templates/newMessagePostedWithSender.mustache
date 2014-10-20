@@ -15,7 +15,7 @@
 	id="line{{lineNumber}}"
 	time="{{lineRenderTime}}">
 
-	<div class="nick"
+	<div class="nick">
 		<span class="sender"
 			onclick="Textual.nicknameMaybeWasDoubleClicked(this)"
 			oncontextmenu="Textual.openStandardNicknameContextualMenu()"
@@ -27,6 +27,7 @@
 		</span>
 	</div>
 	<div class="msg">
+		<p>
 		{{#isEncrypted}}
 			{{{encryptedMessageLockTemplate}}}
 		{{/isEncrypted}}
