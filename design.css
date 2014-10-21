@@ -42,9 +42,9 @@ body[type="server"] div#body_home {
 }
 
 div.line { display:table-row; }
-div#mark { display:table-row; }
+/*div[id=mark] { display:table-row; }*/
 div.line .nick { display:table-cell; }
-div#mark .blank,
+/*div[id=mark] .blank,*/
 div.line .blank { display:table-cell; }
 div.line .msg { display:table-cell; }
 
@@ -59,16 +59,14 @@ div.line .msg { display:table-cell; }
 
 /* Remember Line */
 
-div#mark {
+div[id=mark] {
   position: relative;
   z-index: 295;
 	margin-top: -1px;
-/*border-bottom: 2px dotted;
-  border-color: #c00;*/
+	border-bottom: 2px dotted;
+  border-color: #c33;
   -webkit-transition: 0.2s linear;
 }
-
-div#mark div { border-bottom: 2px dotted #c33; }
 
 /* Links */
 
