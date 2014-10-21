@@ -23,8 +23,12 @@
 	
 	{{#fragmentBackgroundColorIsSet}}
 		bgcolor-number="{{fragmentBackgroundColor}}" 
-	{{/fragmentBackgroundColorIsSet}}
->{{/fragmentContainsFormattingSymbols}}
+	{{/fragmentBackgroundColorIsSet}}>
+{{/fragmentContainsFormattingSymbols}}
 {{{messageFragment}}}
-{{#fragmentContainsFormattingSymbols}}</span>{{/fragmentContainsFormattingSymbols}}
-{{#inlineNicknameMatchFound}}</span>{{/inlineNicknameMatchFound}}
+{{#fragmentContainsFormattingSymbols}}
+</span>
+{{/fragmentContainsFormattingSymbols}}
+{{#inlineNicknameMatchFound}}
+</span>
+{{/inlineNicknameMatchFound}}
