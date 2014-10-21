@@ -63,7 +63,7 @@ div[id=mark] {
   position: relative;
   z-index: 295;
 	margin-top: -1px;
-	border-bottom: 2px dotted;
+	border-bottom: 2px dashed;
   border-color: #c33;
   -webkit-transition: 0.2s linear;
 }
