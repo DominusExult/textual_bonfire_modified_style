@@ -59,9 +59,6 @@
 	    Hello.prototype.render = function() {
 	      var channel;
 	      channel = $("html").attr("channelname");
-	      if (channel) {
-	        this.text("You have not joined this channel yet.");
-	      }
 	      if (!app.serverIsConnected) {
 	        return;
 	      }
@@ -71,8 +68,6 @@
 	       return this.status("Not connected to server.");
 	      } else if (channel && !app.channelIsJoined()) {
 			  return this.status("Not joined to channel."); 
-	      } else if (app.channelIsJoined()) {
-	        return this.text("No chatter on this channel yet.");
 	      }
 	    };
 
