@@ -42,9 +42,9 @@ body[type="server"] div#body_home {
 }
 
 div.line { display:table-row; }
-/*div[id=mark] { display:table-row; }*/
+div#mark { display:table-row; }*/
 div.line .nick { display:table-cell; }
-/*div[id=mark] .blank,*/
+div#mark .blank,*/
 div.line .blank { display:table-cell; }
 div.line .msg { display:table-cell; }
 
@@ -59,13 +59,16 @@ div.line .msg { display:table-cell; }
 
 /* Remember Line */
 
-div[id=mark] {
-  position: relative;
-  z-index: 295;
+div#mark {
+	position: relative;
+	z-index: 295;
 	margin-top: -1px;
-	border-bottom: 2px dashed;
-  border-color: #c33;
-  -webkit-transition: 0.2s linear;
+	//border-bottom: 2px dashed;
+	border-color: #c33;
+	-webkit-transition: 0.2s linear;
+	font-size:1px;
+
+div#mark div { border-bottom: 2px dashed #c33; }
 }
 
 /* Links */
@@ -292,7 +295,7 @@ body img {
   
 .chatlog .line[type='debug'] .msg { 
 	color:#999; 
-	font-size:9px;
+	font-size:15px;
 	/*background:#F2F7EA;*/
 	}
 /*.chatlog .line[type='reply'] .msg:before { content: "\2022 "; }*/
@@ -363,7 +366,6 @@ body img {
 {
   padding-left:1px;
 }
-
 
 .chatlog .line[type=nick] div:first-child:after {
   text-align:right;
