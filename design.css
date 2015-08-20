@@ -33,7 +33,8 @@ div#body_home {
 	left:0; 
 }
 
-body[type="channel"] div#body_home {
+body[type="channel"] div#body_home,
+body[type="query"] div#body_home {
 	max-height: 96.5%;
 }
 
