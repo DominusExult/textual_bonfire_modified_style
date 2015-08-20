@@ -227,6 +227,7 @@ body img {
 	min-width:120px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .chatlog div.msg
